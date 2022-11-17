@@ -481,7 +481,7 @@ module CarrierWave
         # [Fog::#{provider}::File] file data from remote service
         #
         def file
-          @file ||= directory.files.head(path)
+          @file ||= directory.files.head(path).merge(@uploader.fog_attributes)
         end
 
         def copy_options
